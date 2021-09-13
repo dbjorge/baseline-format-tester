@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import { HJsonFormatter } from './formatters/hjson-formatter';
 import { JsonFormatter } from './formatters/json-formatter';
 import { Json5Formatter } from './formatters/json5-formatter';
+import { PrettyFormatJson5Formatter } from './formatters/pretty-format-json5-formatter';
 import { YamlFormatter } from './formatters/yaml-formatter';
 import { baselineContentV1Sample } from './model/baseline-sample';
 
@@ -9,6 +10,7 @@ const formatters = {
     'hjson': new HJsonFormatter(),
     'json': new JsonFormatter(),
     'json5': new Json5Formatter(),
+    'pfjson5': new PrettyFormatJson5Formatter(),
     'yaml': new YamlFormatter(),
 };
 
