@@ -1,4 +1,6 @@
-import { Schema } from "ajv";
+import Ajv, { Schema, ValidateFunction } from "ajv";
+import { BaselineContentV1 } from "./baseline";
+import { inspect } from "util";
 
 export const baselineContentV1Schema: Schema = {
     type: 'object',
@@ -28,3 +30,14 @@ export const baselineContentV1Schema: Schema = {
         additionalProperties: false,
     }
 };
+
+const ajv = new Ajv({ allErrors: true });
+const schemaValidator: ValidateFunction<BaselineContentV1> = ajv.compile(baselineContentV1Schema);
+export function validateAgainstSchema(unvalidatedBaselineContent: any): BaselineContentV1 {
+    const isValid = schemaValidator(unvalidatedBaselineContent);
+    if (isValid) {
+        return unvalidatedBaselineContent;
+    } else {
+        throw new Error(`YamlFormatter.parse: input did not match schema. Errors: ${inspect(schemaValidator.errors)}`);
+    }
+}
