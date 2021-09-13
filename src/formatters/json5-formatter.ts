@@ -12,7 +12,7 @@ export class Json5Formatter implements Formatter {
     format(baselineContent: BaselineContentV1): string {
         const options = {
             space: 2,
-            quote: "'",
+            quote: "\"",
         };
         return JSON5.stringify(baselineContent, options);
     }
