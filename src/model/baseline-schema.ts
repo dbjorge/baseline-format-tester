@@ -6,7 +6,7 @@ export const baselineContentV1Schema: Schema = {
         metadata: {
             type: 'object',
             properties: {
-                version: { const: '1' }
+                fileFormatVersion: { const: '1' }
             },
             additionalProperties: false,
         },
@@ -15,7 +15,7 @@ export const baselineContentV1Schema: Schema = {
             items: {
                 type: 'object',
                 properties: {
-                    rule: { type: 'number' },
+                    rule: { type: 'string' },
                     url: { type: 'string' },
                     selectorChain: {
                         type: 'array',

@@ -6,6 +6,7 @@ async function main() {
     await yargs(hideBin(process.argv))
         .scriptName('baseline-format-tester')
         .demandOption('format', 'yaml | json')
+        .alias('f', 'format')
         .command('print', 'print a new generated file', {}, async (argv) =>
             await print({ format: argv.format as Format })
         )
