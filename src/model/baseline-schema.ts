@@ -10,6 +10,7 @@ export const baselineContentV1Schema: Schema = {
             properties: {
                 fileFormatVersion: { const: '1' }
             },
+            required: ['fileFormatVersion'],
             additionalProperties: false,
         },
         results: {
@@ -17,18 +18,20 @@ export const baselineContentV1Schema: Schema = {
             items: {
                 type: 'object',
                 properties: {
-                    rule: { type: 'string' },
-                    url: { type: 'string' },
-                    selectorChain: {
-                        type: 'array',
-                        items: { type: 'string' }
-                    },
-                    additionalProperties: false,
-                }
+                    rule: { type: 'number' },
+                    urls: { type: 'array', items: { type: 'string' } },
+                    cssSelector: { type: 'string' },
+                    xpathSelector: { type: 'string' },
+                    htmlSnippet: { type: 'string' },
+                },
+                // xpathSelector is intentionally optional
+                required: ['rule', 'cssSelector', 'htmlSnippet', 'urls'],
+                additionalProperties: false,
             }
         },
-        additionalProperties: false,
-    }
+    },
+    required: ['metadata', 'results'],
+    additionalProperties: false,
 };
 
 const ajv = new Ajv({ allErrors: true });

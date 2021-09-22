@@ -7,13 +7,16 @@ export const baselineContentV1Sample: BaselineContentV1 = {
     results: [
         {
             rule: 'rule-id-1',
-            url: 'https://example.com/path?queryparam=value',
-            selectorChain: ['#id1', '#id2', '#id3'],
+            urls: ['https://example.com/1', 'https://example.com/2'],
+            cssSelector: '#id1;#id2;#id3',
+            xpathSelector: '/id1;/id2;/id3',
+            htmlSnippet: '<div id="id3" />',
         },
         {
             rule: 'rule-id-2',
-            url: 'https://example.com/other/path',
-            selectorChain: ['.root-class[data-attr="quoted value"]'],
+            urls: ['https://example.com/other/path'],
+            cssSelector: '.root-class[data-attr="quoted value"]',
+            htmlSnippet: '<span class="root-class" data-attr="quoted value" />',
         }
     ]
 };

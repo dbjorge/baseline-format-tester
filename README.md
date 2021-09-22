@@ -36,10 +36,10 @@ To add a new formatter to try out:
 * Dependency tree size: total number of transitive dependencies
 * C# support: whether there is a comparably reasonable C# implementation
 
-| *Criteria* | JSON | HJSON | JSON5 | js-yaml |
-| - | - | - | - | - |
-| Usage      | *    | 0.25M/wk | 44M/wk | 31M/wk |
-| Maint. recency | * | 10mo | 7mo | 5mo |
-| Bus factor | * | 2 | 2-6 | 1-3 |
-| Dep. tree size | 0 | 1 | 2 | 2 |
-| C# support | yes | yes, but low usage | no | yes |
+| *Criteria* | JSON | HJSON | JSON5 | js-yaml | pretty-format |
+| - | - | - | - | - | - |
+| Usage      | *    | 0.25M/wk | 44M/wk | 31M/wk | 27M/wk |
+| Maint. recency | * | 10mo | 7mo | 5mo | 1d |
+| Bus factor | * | 2 | 2-6 | 1-3 | 10+ |
+| Dep. tree size | 0 | 1 | 2 | 2 | 5 |
+| C# support | yes | yes, but low usage | no | yes | yes (depending on settings) |
